@@ -1,7 +1,7 @@
 <?php
 
 const STATUS = ['ACTIVE', 'WARNING', 'INACTIVE', 'DESTROYED', 'NOT READY'];
-const DB_FILENAME = 'sqlite:../user.sqlite';
+const DB_FILENAME = 'sqlite:/var/www/user.sqlite';
 $zone = "";
 $trail = "";
 $city = "";

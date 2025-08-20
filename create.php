@@ -1,5 +1,5 @@
 <?php
-const DB_FILENAME = 'sqlite:user.sqlite';
+const DB_FILENAME = 'sqlite:/var/www/user.sqlite';
 $db = new PDO(DB_FILENAME);
 $statement = $db->prepare('CREATE TABLE IF NOT EXISTS user(username TEST PRIMARY KEY,password TEXT NOT NULL)');
 $statement->execute();
