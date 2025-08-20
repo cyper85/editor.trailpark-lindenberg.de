@@ -14,5 +14,5 @@ RUN mkdir /var/www/.ssh && \
     mkdir /var/www/tmp && \
     chown www-data /var/www/tmp && \
     apt-get update && \
-    apt-get install --yes git \
+    apt-get install --yes git
 
