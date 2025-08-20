@@ -44,7 +44,7 @@ if (array_key_exists('username', $_POST) && array_key_exists('password', $_POST)
         exit('Falsches Passwort');
     }
 
-    shell_exec('bash -c "/var/www/checkout.sh" 2>&1');
+    shell_exec('bash /var/www/checkout.sh 2>&1');
 
     $trails_file = '/tmp/editorgit/trails.json';
     $trails = json_decode(file_get_contents($trails_file), associative: true);
@@ -56,7 +56,7 @@ if (array_key_exists('username', $_POST) && array_key_exists('password', $_POST)
     }
 
     file_put_contents($trails_file, json_encode($trails, JSON_PRETTY_PRINT));
-    shell_exec('bash -c """/var/www/commit.sh "' . escapeshellarg($_POST['username']) . '" "' . escapeshellarg($trail) . '""" 2>&1');
+    shell_exec('bash /var/www/commit.sh "' . escapeshellarg($_POST['username']) . '" "' . escapeshellarg($trail) . '" 2>&1');
 
     exit('Speichern erfolgreich. Bis die Website aktualisiert wird, dauert es wenige Minuten.');
 }
