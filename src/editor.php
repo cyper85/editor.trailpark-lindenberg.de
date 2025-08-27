@@ -18,7 +18,7 @@ if (array_key_exists('city', $_REQUEST)) {
 }
 
 // get data
-$json = file_get_contents('https://trailpark-lindenberg.de/trails.json');
+$json = file_get_contents('https://trailampel.de/trails.json');
 $trails = json_decode($json, associative: true);
 
 if (array_key_exists($city, $trails) && array_key_exists($zone, $trails[$city]) && array_key_exists($trail, $trails[$city][$zone])) {
@@ -71,15 +71,15 @@ if (array_key_exists('username', $_POST) && array_key_exists('password', $_POST)
     <table>
         <tr>
             <th><label for="city">City:</label></th>
-            <td><input type="text" id="city" name="city" value="<?= $city ?>"/></td>
+            <td><input type="hidden" id="city" name="city" value="<?= $city ?>"/><?= $city ?>"</td>
         </tr>
         <tr>
             <th><label for="zone">Zone:</label></th>
-            <td><input type="text" id="zone" name="zone" value="<?= $zone ?>"/></td>
+            <td><input type="hidden" id="zone" name="zone" value="<?= $zone ?>"/><?= $zone ?></td>
         </tr>
         <tr>
             <th><label for="trail">Trail:</label></th>
-            <td><input type="text" id="trail" name="trail" value="<?= $trail ?>"/></td>
+            <td><input type="hidden" id="trail" name="trail" value="<?= $trail ?>"/><?= $zone ?></td>
         </tr>
         <tr>
             <th><label for="status">Status:</label></th>
@@ -91,7 +91,7 @@ if (array_key_exists('username', $_POST) && array_key_exists('password', $_POST)
         </tr>
         <tr>
             <th><label for="message" name="message">Message:</label></th>
-            <td><textarea type="text" id="message"><?= $message ?></textarea></td>
+            <td><textarea type="text" id="message" cols="5" rows="40"><?= $message ?></textarea></td>
         </tr>
         <tr>
             <td colspan="2">&nbsp;</td>
